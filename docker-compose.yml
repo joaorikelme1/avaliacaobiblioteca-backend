@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   db-biblioteca:
     image: postgres:16
@@ -12,6 +11,27 @@ services:
       - "5432:5432"
     volumes:
       - biblioteca_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U biblioteca -d biblioteca"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biblioteca-backend
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-biblioteca:5432/biblioteca
+      SPRING_DATASOURCE_USERNAME: biblioteca
+      SPRING_DATASOURCE_PASSWORD: biblioteca123
+    ports:
+      - "8080:8080"
+    depends_on:
+      db-biblioteca:
+        condition: service_healthy
 
 volumes:
   biblioteca_data:
