@@ -3,8 +3,10 @@ package com.senac.biblioteca.service;
 import com.senac.biblioteca.model.Emprestimo;
 import com.senac.biblioteca.model.StatusEmprestimo;
 import com.senac.biblioteca.repository.EmprestimoRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -34,8 +36,18 @@ public class EmprestimoService {
         return emprestimoRepository.save(emprestimo);
     }
 
+    @Transactional
     public Emprestimo devolver(Long id) {
-        Emprestimo emprestimo = emprestimoRepository.findById(id).orElseThrow();
+        Emprestimo emprestimo = emprestimoRepository.buscarPorIdParaAtualizacao(id)
+                .orElseThrow();
+
+        if (emprestimo.getStatus() != StatusEmprestimo.ATIVO) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Este empréstimo já foi devolvido"
+            );
+        }
+
         emprestimo.setDataDevolucaoReal(LocalDate.now());
         emprestimo.setStatus(StatusEmprestimo.DEVOLVIDO);
         livroService.incrementarDisponibilidade(emprestimo.getLivroId());
