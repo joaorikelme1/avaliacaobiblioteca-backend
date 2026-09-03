@@ -2,7 +2,10 @@ package com.senac.biblioteca.service;
 
 import com.senac.biblioteca.model.Livro;
 import com.senac.biblioteca.repository.LivroRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -43,10 +46,18 @@ public class LivroService {
         livroRepository.deleteById(id);
     }
 
+    @Transactional
     public void decrementarDisponibilidade(Long livroId) {
-        Livro livro = buscarPorId(livroId);
-        // BUG: nao verifica se quantidadeDisponivel > 0 antes de decrementar,
-        // permitindo que o estoque de livros disponiveis fique negativo
+        Livro livro = livroRepository.buscarPorIdParaAtualizacao(livroId)
+                .orElseThrow();
+
+        if (livro.getQuantidadeDisponivel() == null || livro.getQuantidadeDisponivel() <= 0) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Não há exemplares disponíveis para empréstimo"
+            );
+        }
+
         livro.setQuantidadeDisponivel(livro.getQuantidadeDisponivel() - 1);
         livroRepository.save(livro);
     }
