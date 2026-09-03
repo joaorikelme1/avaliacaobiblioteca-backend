@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db-biblioteca:
+    image: postgres:16
+    container_name: db-biblioteca
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: biblioteca
+      POSTGRES_USER: biblioteca
+      POSTGRES_PASSWORD: biblioteca123
+    ports:
+      - "5432:5432"
+    volumes:
+      - biblioteca_data:/var/lib/postgresql/data
+
+volumes:
+  biblioteca_data:
