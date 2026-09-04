@@ -2,6 +2,8 @@ package com.senac.biblioteca.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 @Entity
 @Table(name = "livros")
@@ -11,14 +13,16 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "O título é obrigatório")
     private String titulo;
 
-    @NotBlank
+    @NotBlank(message = "O autor é obrigatório")
     private String autor;
 
     private String isbn;
 
+    @NotNull(message = "A quantidade total é obrigatória")
+    @PositiveOrZero(message = "A quantidade total deve ser maior ou igual a zero")
     private Integer quantidadeTotal;
 
     private Integer quantidadeDisponivel;

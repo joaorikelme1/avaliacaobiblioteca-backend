@@ -2,6 +2,7 @@ package com.senac.biblioteca.controller;
 
 import com.senac.biblioteca.model.Livro;
 import com.senac.biblioteca.service.LivroService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,15 +32,12 @@ public class LivroController {
     }
 
     @PostMapping
-    // BUG: falta @Valid aqui. O DTO tem @NotBlank no titulo/autor mas a anotacao
-    // nao esta habilitada nesse metodo, entao dados invalidos (ex: titulo vazio,
-    // quantidade negativa) sao aceitos sem erro.
-    public Livro criar(@RequestBody Livro livro) {
+    public Livro criar(@Valid @RequestBody Livro livro) {
         return livroService.salvar(livro);
     }
 
     @PutMapping("/{id}")
-    public Livro atualizar(@PathVariable Long id, @RequestBody Livro livro) {
+    public Livro atualizar(@PathVariable Long id, @Valid @RequestBody Livro livro) {
         return livroService.atualizar(id, livro);
     }
 

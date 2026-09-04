@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.senac.biblioteca.service.EmprestimoServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:13:42" hostname="L05-033781" time="0.063">
+<testsuite name="com.senac.biblioteca.service.EmprestimoServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:22:00" hostname="L05-033781" time="0.02">
   <properties/>
-  <testcase name="deveDevolverEmprestimoAtivoUmaUnicaVez()" classname="com.senac.biblioteca.service.EmprestimoServiceTest" time="0.047"/>
-  <testcase name="deveRecusarEmprestimoQueJaFoiDevolvido()" classname="com.senac.biblioteca.service.EmprestimoServiceTest" time="0.014"/>
+  <testcase name="deveDevolverEmprestimoAtivoUmaUnicaVez()" classname="com.senac.biblioteca.service.EmprestimoServiceTest" time="0.017"/>
+  <testcase name="deveRecusarEmprestimoQueJaFoiDevolvido()" classname="com.senac.biblioteca.service.EmprestimoServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\joao58381226\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
