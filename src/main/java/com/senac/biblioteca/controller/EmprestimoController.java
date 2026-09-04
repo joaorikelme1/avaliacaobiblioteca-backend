@@ -8,7 +8,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/emprestimos")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://avaliacaobiblioteca-frontend.vercel.app"
+})
 public class EmprestimoController {
 
     private final EmprestimoService emprestimoService;
