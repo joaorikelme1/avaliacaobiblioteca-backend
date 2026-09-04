@@ -1,6 +1,9 @@
 package com.senac.biblioteca.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
 
 @Entity
@@ -11,8 +14,11 @@ public class Emprestimo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "O livro é obrigatório")
+    @Positive(message = "O livro selecionado é inválido")
     private Long livroId;
 
+    @NotBlank(message = "O nome do usuário é obrigatório")
     private String nomeUsuario;
 
     private LocalDate dataEmprestimo;

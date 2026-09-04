@@ -2,6 +2,7 @@ package com.senac.biblioteca.controller;
 
 import com.senac.biblioteca.model.Emprestimo;
 import com.senac.biblioteca.service.EmprestimoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class EmprestimoController {
     }
 
     @PostMapping
-    public Emprestimo emprestar(@RequestBody Emprestimo emprestimo) {
+    public Emprestimo emprestar(@Valid @RequestBody Emprestimo emprestimo) {
         return emprestimoService.emprestar(emprestimo);
     }
 
