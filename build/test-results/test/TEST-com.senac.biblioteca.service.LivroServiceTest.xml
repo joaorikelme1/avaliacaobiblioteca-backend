@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.senac.biblioteca.service.LivroServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-03T23:38:14" hostname="DESKTOP-MF5V6ST" time="0.227">
+<testsuite name="com.senac.biblioteca.service.LivroServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-03T23:42:18" hostname="DESKTOP-MF5V6ST" time="0.005">
   <properties/>
-  <testcase name="deveDecrementarQuandoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.187"/>
-  <testcase name="deveRecusarEmprestimoQuandoNaoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.035"/>
+  <testcase name="deveDecrementarQuandoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.002"/>
+  <testcase name="deveRecusarEmprestimoQuandoNaoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\Joao\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
