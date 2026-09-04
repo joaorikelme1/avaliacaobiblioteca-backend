@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.senac.biblioteca.service.LivroServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:25:47" hostname="L05-033781" time="0.006">
+<testsuite name="com.senac.biblioteca.service.LivroServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:37:53" hostname="L05-033781" time="0.005">
   <properties/>
   <testcase name="deveDecrementarQuandoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.001"/>
   <testcase name="deveRecusarDevolucaoQuandoTodosOsExemplaresJaEstaoDisponiveis()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.001"/>
   <testcase name="deveAjustarDisponibilidadeAoAlterarQuantidadeTotal()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.001"/>
-  <testcase name="deveRecusarEmprestimoQuandoNaoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.0"/>
-  <testcase name="deveRecusarTotalMenorQueQuantidadeEmprestada()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.0"/>
+  <testcase name="deveRecusarEmprestimoQuandoNaoHaExemplarDisponivel()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.001"/>
+  <testcase name="deveRecusarTotalMenorQueQuantidadeEmprestada()" classname="com.senac.biblioteca.service.LivroServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
