@@ -4,6 +4,7 @@ import com.senac.biblioteca.model.Emprestimo;
 import com.senac.biblioteca.model.StatusEmprestimo;
 import com.senac.biblioteca.repository.EmprestimoRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,6 +25,7 @@ public class EmprestimoService {
         return emprestimoRepository.findAll();
     }
 
+    @Transactional
     public Emprestimo emprestar(Emprestimo emprestimo) {
         emprestimo.setDataEmprestimo(LocalDate.now());
         emprestimo.setDataDevolucaoPrevista(LocalDate.now().plusDays(7));
