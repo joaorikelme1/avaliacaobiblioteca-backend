@@ -44,4 +44,50 @@ class LivroServiceTest {
         assertEquals(0, livro.getQuantidadeDisponivel());
         verify(livroRepository).save(livro);
     }
+
+    @Test
+    void deveAjustarDisponibilidadeAoAlterarQuantidadeTotal() {
+        Livro livro = new Livro(1L, "Livro", "Autor", "123", 5, 3);
+        Livro dadosAtualizados = new Livro(null, "Livro", "Autor", "123", 7, null);
+        when(livroRepository.buscarPorIdParaAtualizacao(1L)).thenReturn(Optional.of(livro));
+        when(livroRepository.save(livro)).thenReturn(livro);
+
+        Livro atualizado = livroService.atualizar(1L, dadosAtualizados);
+
+        assertEquals(7, atualizado.getQuantidadeTotal());
+        assertEquals(5, atualizado.getQuantidadeDisponivel());
+        verify(livroRepository).save(livro);
+    }
+
+    @Test
+    void deveRecusarTotalMenorQueQuantidadeEmprestada() {
+        Livro livro = new Livro(1L, "Livro", "Autor", "123", 5, 2);
+        Livro dadosAtualizados = new Livro(null, "Livro", "Autor", "123", 2, null);
+        when(livroRepository.buscarPorIdParaAtualizacao(1L)).thenReturn(Optional.of(livro));
+
+        ResponseStatusException erro = assertThrows(
+                ResponseStatusException.class,
+                () -> livroService.atualizar(1L, dadosAtualizados)
+        );
+
+        assertEquals(409, erro.getStatusCode().value());
+        assertEquals(5, livro.getQuantidadeTotal());
+        assertEquals(2, livro.getQuantidadeDisponivel());
+        verify(livroRepository, never()).save(livro);
+    }
+
+    @Test
+    void deveRecusarDevolucaoQuandoTodosOsExemplaresJaEstaoDisponiveis() {
+        Livro livro = new Livro(1L, "Livro", "Autor", "123", 2, 2);
+        when(livroRepository.buscarPorIdParaAtualizacao(1L)).thenReturn(Optional.of(livro));
+
+        ResponseStatusException erro = assertThrows(
+                ResponseStatusException.class,
+                () -> livroService.incrementarDisponibilidade(1L)
+        );
+
+        assertEquals(409, erro.getStatusCode().value());
+        assertEquals(2, livro.getQuantidadeDisponivel());
+        verify(livroRepository, never()).save(livro);
+    }
 }

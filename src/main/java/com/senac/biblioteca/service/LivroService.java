@@ -29,16 +29,30 @@ public class LivroService {
     }
 
     public Livro salvar(Livro livro) {
+        validarQuantidadeTotal(livro.getQuantidadeTotal());
         livro.setQuantidadeDisponivel(livro.getQuantidadeTotal());
         return livroRepository.save(livro);
     }
 
+    @Transactional
     public Livro atualizar(Long id, Livro dadosAtualizados) {
-        Livro livro = buscarPorId(id);
+        Livro livro = livroRepository.buscarPorIdParaAtualizacao(id)
+                .orElseThrow();
+        validarQuantidadeTotal(dadosAtualizados.getQuantidadeTotal());
+
+        int quantidadeEmprestada = livro.getQuantidadeTotal() - livro.getQuantidadeDisponivel();
+        if (dadosAtualizados.getQuantidadeTotal() < quantidadeEmprestada) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "A quantidade total não pode ser menor que a quantidade de exemplares emprestados"
+            );
+        }
+
         livro.setTitulo(dadosAtualizados.getTitulo());
         livro.setAutor(dadosAtualizados.getAutor());
         livro.setIsbn(dadosAtualizados.getIsbn());
         livro.setQuantidadeTotal(dadosAtualizados.getQuantidadeTotal());
+        livro.setQuantidadeDisponivel(dadosAtualizados.getQuantidadeTotal() - quantidadeEmprestada);
         return livroRepository.save(livro);
     }
 
@@ -62,9 +76,30 @@ public class LivroService {
         livroRepository.save(livro);
     }
 
+    @Transactional
     public void incrementarDisponibilidade(Long livroId) {
-        Livro livro = buscarPorId(livroId);
+        Livro livro = livroRepository.buscarPorIdParaAtualizacao(livroId)
+                .orElseThrow();
+
+        if (livro.getQuantidadeDisponivel() == null
+                || livro.getQuantidadeTotal() == null
+                || livro.getQuantidadeDisponivel() >= livro.getQuantidadeTotal()) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "A quantidade disponível não pode ultrapassar a quantidade total"
+            );
+        }
+
         livro.setQuantidadeDisponivel(livro.getQuantidadeDisponivel() + 1);
         livroRepository.save(livro);
+    }
+
+    private void validarQuantidadeTotal(Integer quantidadeTotal) {
+        if (quantidadeTotal == null || quantidadeTotal < 0) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "A quantidade total deve ser maior ou igual a zero"
+            );
+        }
     }
 }
