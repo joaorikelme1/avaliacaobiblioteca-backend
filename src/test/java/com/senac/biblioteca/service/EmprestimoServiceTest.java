@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,6 +53,28 @@ class EmprestimoServiceTest {
         assertEquals(LocalDate.now(), devolvido.getDataDevolucaoReal());
         verify(livroService).incrementarDisponibilidade(2L);
         verify(emprestimoRepository).save(emprestimo);
+    }
+
+    @Test
+    void deveListarSomenteEmprestimosAtivosComPrazoVencido() {
+        Emprestimo atrasado = criarEmprestimo(StatusEmprestimo.ATIVO);
+        atrasado.setDataDevolucaoPrevista(LocalDate.now().minusDays(1));
+
+        Emprestimo noPrazo = criarEmprestimo(StatusEmprestimo.ATIVO);
+        noPrazo.setDataDevolucaoPrevista(LocalDate.now().plusDays(1));
+
+        Emprestimo venceHoje = criarEmprestimo(StatusEmprestimo.ATIVO);
+        venceHoje.setDataDevolucaoPrevista(LocalDate.now());
+
+        Emprestimo devolvido = criarEmprestimo(StatusEmprestimo.DEVOLVIDO);
+        devolvido.setDataDevolucaoPrevista(LocalDate.now().minusDays(1));
+
+        when(emprestimoRepository.findAll())
+                .thenReturn(List.of(atrasado, noPrazo, venceHoje, devolvido));
+
+        List<Emprestimo> resultado = emprestimoService.listarAtrasados();
+
+        assertEquals(List.of(atrasado), resultado);
     }
 
     private Emprestimo criarEmprestimo(StatusEmprestimo status) {

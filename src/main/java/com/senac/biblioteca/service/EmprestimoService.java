@@ -55,12 +55,10 @@ public class EmprestimoService {
     }
 
     public List<Emprestimo> listarAtrasados() {
-        // BUG: condicao invertida. Deveria ser isBefore(LocalDate.now()) para achar
-        // emprestimos cuja devolucao prevista ja passou. Do jeito que esta,
-        // devolve os emprestimos que AINDA NAO venceram, e nao os atrasados.
         return emprestimoRepository.findAll().stream()
                 .filter(e -> e.getStatus() == StatusEmprestimo.ATIVO)
-                .filter(e -> e.getDataDevolucaoPrevista().isAfter(LocalDate.now()))
+                .filter(e -> e.getDataDevolucaoPrevista() != null)
+                .filter(e -> e.getDataDevolucaoPrevista().isBefore(LocalDate.now()))
                 .collect(Collectors.toList());
     }
 }
