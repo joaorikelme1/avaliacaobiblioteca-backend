@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.senac.biblioteca.controller.EmprestimoControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:37:53" hostname="L05-033781" time="0.141">
+<testsuite name="com.senac.biblioteca.controller.EmprestimoControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-04T19:45:51" hostname="L05-033781" time="0.162">
   <properties/>
-  <testcase name="deveRecusarEmprestimoComDadosInvalidos()" classname="com.senac.biblioteca.controller.EmprestimoControllerTest" time="0.141"/>
-  <system-out><![CDATA[16:37:51.527 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.senac.biblioteca.controller.EmprestimoControllerTest]: EmprestimoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-16:37:51.621 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.senac.biblioteca.BibliotecaApplication for test class com.senac.biblioteca.controller.EmprestimoControllerTest
+  <testcase name="deveRecusarEmprestimoComDadosInvalidos()" classname="com.senac.biblioteca.controller.EmprestimoControllerTest" time="0.162"/>
+  <system-out><![CDATA[16:45:49.911 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.senac.biblioteca.controller.EmprestimoControllerTest]: EmprestimoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:45:50.023 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.senac.biblioteca.BibliotecaApplication for test class com.senac.biblioteca.controller.EmprestimoControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,24 +14,24 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2026-09-04T16:37:51.852-03:00  INFO 30608 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : Starting EmprestimoControllerTest using Java 21.0.9 with PID 30608 (started by joao58381226 in C:\Users\joao58381226\Downloads\Avaliacao Biblioteca\avaliacaobiblioteca-backend)
-2026-09-04T16:37:51.853-03:00  INFO 30608 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : No active profile set, falling back to 1 default profile: "default"
-2026-09-04T16:37:51.854-03:00 DEBUG 30608 --- [    Test worker] o.s.boot.SpringApplication               : Loading source class com.senac.biblioteca.BibliotecaApplication
-2026-09-04T16:37:51.863-03:00 DEBUG 30608 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@66e889df
-2026-09-04T16:37:52.934-03:00 DEBUG 30608 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
-2026-09-04T16:37:52.950-03:00 DEBUG 30608 --- [    Test worker] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'com.senac.biblioteca'. Automatic @Repository and @Entity scanning is enabled.
-2026-09-04T16:37:52.998-03:00 DEBUG 30608 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-09-04T16:37:53.022-03:00 DEBUG 30608 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-09-04T16:37:53.035-03:00 DEBUG 30608 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-09-04T16:37:53.058-03:00 DEBUG 30608 --- [    Test worker] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105
-2026-09-04T16:37:53.058-03:00 DEBUG 30608 --- [    Test worker] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: 
-2026-09-04T16:37:53.062-03:00 DEBUG 30608 --- [    Test worker] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
-2026-09-04T16:37:53.062-03:00 DEBUG 30608 --- [    Test worker] o.s.b.w.s.f.OrderedFormContentFilter     : Filter 'formContentFilter' configured for use
-2026-09-04T16:37:53.062-03:00 DEBUG 30608 --- [    Test worker] o.s.b.w.s.f.OrderedRequestContextFilter  : Filter 'requestContextFilter' configured for use
-2026-09-04T16:37:53.064-03:00  INFO 30608 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-09-04T16:37:53.067-03:00  INFO 30608 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-09-04T16:37:53.067-03:00  INFO 30608 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-09-04T16:37:53.087-03:00 DEBUG 30608 --- [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-09-04T16:45:50.270-03:00  INFO 35656 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : Starting EmprestimoControllerTest using Java 21.0.9 with PID 35656 (started by joao58381226 in C:\Users\joao58381226\Downloads\Avaliacao Biblioteca\avaliacaobiblioteca-backend)
+2026-09-04T16:45:50.271-03:00  INFO 35656 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : No active profile set, falling back to 1 default profile: "default"
+2026-09-04T16:45:50.271-03:00 DEBUG 35656 --- [    Test worker] o.s.boot.SpringApplication               : Loading source class com.senac.biblioteca.BibliotecaApplication
+2026-09-04T16:45:50.281-03:00 DEBUG 35656 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@55b8dbda
+2026-09-04T16:45:51.384-03:00 DEBUG 35656 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-09-04T16:45:51.397-03:00 DEBUG 35656 --- [    Test worker] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'com.senac.biblioteca'. Automatic @Repository and @Entity scanning is enabled.
+2026-09-04T16:45:51.442-03:00 DEBUG 35656 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-09-04T16:45:51.463-03:00 DEBUG 35656 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-09-04T16:45:51.485-03:00 DEBUG 35656 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-09-04T16:45:51.508-03:00 DEBUG 35656 --- [    Test worker] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105
+2026-09-04T16:45:51.508-03:00 DEBUG 35656 --- [    Test worker] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: 
+2026-09-04T16:45:51.513-03:00 DEBUG 35656 --- [    Test worker] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
+2026-09-04T16:45:51.513-03:00 DEBUG 35656 --- [    Test worker] o.s.b.w.s.f.OrderedFormContentFilter     : Filter 'formContentFilter' configured for use
+2026-09-04T16:45:51.513-03:00 DEBUG 35656 --- [    Test worker] o.s.b.w.s.f.OrderedRequestContextFilter  : Filter 'requestContextFilter' configured for use
+2026-09-04T16:45:51.518-03:00  INFO 35656 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-09-04T16:45:51.519-03:00  INFO 35656 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-09-04T16:45:51.520-03:00  INFO 35656 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-09-04T16:45:51.538-03:00 DEBUG 35656 --- [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 
 ============================
@@ -378,10 +378,13 @@ Unconditional classes:
 
 
 
-2026-09-04T16:37:53.105-03:00  INFO 30608 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : Started EmprestimoControllerTest in 1.432 seconds (process running for 2.259)
-2026-09-04T16:37:53.154-03:00 DEBUG 30608 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.senac.biblioteca.controller.EmprestimoController#emprestar(Emprestimo)
-2026-09-04T16:37:53.198-03:00 DEBUG 30608 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.senac.biblioteca.model.Emprestimo@3cb04dd]
-2026-09-04T16:37:53.247-03:00  WARN 30608 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.senac.biblioteca.model.Emprestimo com.senac.biblioteca.controller.EmprestimoController.emprestar(com.senac.biblioteca.model.Emprestimo) with 2 errors: [Field error in object 'emprestimo' on field 'nomeUsuario': rejected value [ ]; codes [NotBlank.emprestimo.nomeUsuario,NotBlank.nomeUsuario,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [emprestimo.nomeUsuario,nomeUsuario]; arguments []; default message [nomeUsuario]]; default message [O nome do usuário é obrigatório]] [Field error in object 'emprestimo' on field 'livroId': rejected value [0]; codes [Positive.emprestimo.livroId,Positive.livroId,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [emprestimo.livroId,livroId]; arguments []; default message [livroId]]; default message [O livro selecionado é inválido]] ]
+2026-09-04T16:45:51.562-03:00  INFO 35656 --- [    Test worker] c.s.b.c.EmprestimoControllerTest         : Started EmprestimoControllerTest in 1.477 seconds (process running for 2.352)
+2026-09-04T16:45:51.606-03:00 DEBUG 35656 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.senac.biblioteca.controller.EmprestimoController#emprestar(Emprestimo)
+2026-09-04T16:45:51.655-03:00 DEBUG 35656 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.senac.biblioteca.model.Emprestimo@7fc1fd31]
+2026-09-04T16:45:51.700-03:00 DEBUG 35656 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.senac.biblioteca.exception.ApiExceptionHandler#tratarValidacao(MethodArgumentNotValidException, HttpServletRequest)
+2026-09-04T16:45:51.712-03:00 DEBUG 35656 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-09-04T16:45:51.718-03:00 DEBUG 35656 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErroResposta[timestamp=2026-09-04T16:45:51.702952800-03:00, status=400, error=Bad Request, message=D (truncated)...]
+2026-09-04T16:45:51.724-03:00 DEBUG 35656 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.senac.biblioteca.model.Emprestimo com.senac.biblioteca.controller.EmprestimoController.emprestar(com.senac.biblioteca.model.Emprestimo) with 2 errors: [Field error in object 'emprestimo' on field 'nomeUsuario': rejected value [ ]; codes [NotBlank.emprestimo.nomeUsuario,NotBlank.nomeUsuario,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [emprestimo.nomeUsuario,nomeUsuario]; arguments []; default message [nomeUsuario]]; default message [O nome do usuário é obrigatório]] [Field error in object 'emprestimo' on field 'livroId': rejected value [0]; codes [Positive.emprestimo.livroId,Positive.livroId,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [emprestimo.livroId,livroId]; arguments []; default message [livroId]]; default message [O livro selecionado é inválido]] ]
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\joao58381226\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
